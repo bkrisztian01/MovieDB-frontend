@@ -1,0 +1,45 @@
+.scroller {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  overflow-x: scroll;
+  height: auto;
+}
+
+.scroller-container {
+  margin: 20px 0;
+}
+
+mat-card-title.scroller-container.title {
+  font-size: 24px;
+  margin: 8px 0;
+}
+
+mat-card-header a.more {
+  margin-left: 6px;
+  text-decoration-line: none;
+}
+
+mat-card-header a.more:hover {
+  text-decoration-line: underline;
+}
+
+.scroller-container .header {
+  display: flex;
+  align-items: baseline;
+}
+
+.scroller-container ::-webkit-scrollbar {
+  width: 4px;
+  height: 6px;
+}
+.scroller-container ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroller-container ::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}

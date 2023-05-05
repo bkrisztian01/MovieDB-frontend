@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieDbService } from './services/movie-db.service';
-import { Movie } from './models/movie';
+import { Movie } from 'src/app/models/movie';
+import { MovieDbService } from 'src/app/services/movie-db.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class AppComponent implements OnInit {
-  title = 'The Movie DB copy';
+export class HomeComponent implements OnInit {
   movies: Movie[];
 
   constructor(private movieDbService: MovieDbService) {}

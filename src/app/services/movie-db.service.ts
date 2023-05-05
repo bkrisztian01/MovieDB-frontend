@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
+import { Movie } from '../models/movie';
 
 const httpHeaders = {
   headers: new HttpHeaders({
@@ -26,7 +27,7 @@ export class MovieDbService {
       },
     };
 
-    return this.http.get(url, options);
+    return this.http.get<{ page: number; results: Movie[] }>(url, options);
   }
 
   getDiscoverShows(page = 1) {

@@ -1,0 +1,9 @@
+<div class="scroll-item">
+  <img
+    mat-card-image
+    src="https://image.tmdb.org/t/p/w154/{{ movie.poster_path }}"
+    (click)="onClick()"
+  />
+  <div class="title">{{ movie.title }}</div>
+  <div>{{ movie.vote_average }}★</div>
+</div>

@@ -1,1 +1,7 @@
-<div [ngStyle]="{ 'white-space': 'pre-wrap' }">{{ content }}</div>
+<div class="page-container">
+  <app-header></app-header>
+  <div class="row content">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>

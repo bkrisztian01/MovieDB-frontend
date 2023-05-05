@@ -1,7 +1,16 @@
 <div class="home-container">
   <app-movie-scroller
+    title="Discover movies"
     morePath="discover/movies"
-    [movies]="movies"
-    *ngIf="!!movies"
+    [movies]="discoverMovies"
+    *ngIf="!!discoverMovies"
+    itemPathPrefix="/movies"
+  />
+  <app-movie-scroller
+    title="Discover TV shows"
+    morePath="discover/movies"
+    [movies]="discoverShows"
+    *ngIf="!!discoverShows"
+    itemPathPrefix="/movies"
   />
 </div>

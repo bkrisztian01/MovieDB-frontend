@@ -1,7 +1,47 @@
-<div class="page-container">
-  <app-header></app-header>
-  <div class="row content">
-    <router-outlet></router-outlet>
+<mat-drawer-container>
+  <mat-drawer #drawer>
+    <p class="title">MovieDB</p>
+    <mat-divider />
+
+    <form class="search-form">
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput type="text" />
+        <button mat-icon-button matSuffix type="submit">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+
+    <mat-list>
+      <mat-list-item class="link" routerLink="/" (click)="drawer.toggle()">
+        <mat-icon matListItemIcon>home</mat-icon>
+        <div matListItemTitle>Home</div>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-list>
+      <p class="category-name">Discover</p>
+      <mat-list-item
+        class="link"
+        routerLink="/discover/movies"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon matListItemIcon>movie</mat-icon>
+        <div matListItemTitle>Movies</div>
+      </mat-list-item>
+      <mat-list-item class="link" routerLink="/" (click)="drawer.toggle()">
+        <mat-icon matListItemIcon>tv</mat-icon>
+        <div matListItemTitle>TV shows</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+
+  <div class="page-container">
+    <app-header (menuClick)="drawer.toggle()"></app-header>
+    <div class="row content">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
   </div>
-  <app-footer></app-footer>
-</div>
+</mat-drawer-container>

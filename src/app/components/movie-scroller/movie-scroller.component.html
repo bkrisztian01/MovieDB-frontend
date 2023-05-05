@@ -1,7 +1,7 @@
 <mat-card class="scroller-container">
   <mat-card-header>
     <div class="header">
-      <mat-card-title class="section title">Discover movies</mat-card-title>
+      <mat-card-title class="section title">{{ title }}</mat-card-title>
       <a class="more" routerLink="{{ morePath }}">show more</a>
     </div>
   </mat-card-header>
@@ -9,6 +9,7 @@
     <div class="scroller">
       <app-movie-scroll-item
         *ngFor="let movie of movies"
+        itemPathPrefix="{{ itemPathPrefix }}"
         [movie]="movie"
       ></app-movie-scroll-item>
     </div>

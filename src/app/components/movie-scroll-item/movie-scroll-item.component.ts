@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Movie } from 'src/app/models/movie';
+import { MovieScrollItem } from 'src/app/models/MovieScrollItem';
 
 @Component({
   selector: 'app-movie-scroll-item',
@@ -8,11 +8,12 @@ import { Movie } from 'src/app/models/movie';
   styleUrls: ['./movie-scroll-item.component.scss'],
 })
 export class MovieScrollItemComponent {
-  @Input() movie: Movie;
+  @Input() movie: MovieScrollItem;
+  @Input() itemPathPrefix: string;
 
   constructor(private router: Router) {}
 
   onClick() {
-    this.router.navigate(['/movies', this.movie.id]);
+    this.router.navigate([this.itemPathPrefix, this.movie.id]);
   }
 }

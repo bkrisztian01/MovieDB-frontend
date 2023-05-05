@@ -16,3 +16,56 @@
 .page-container .row.footer {
   flex: 0 1 auto;
 }
+
+mat-drawer-container {
+  height: 100vh;
+}
+
+mat-drawer {
+  padding: 20px;
+  min-width: 300px;
+}
+
+mat-drawer p.title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.0125em;
+}
+
+mat-drawer .category-container {
+  margin: 10px 0;
+}
+
+mat-drawer p.category-name {
+  margin: 0;
+  font-size: 14px;
+  line-height: 32px;
+  color: grey;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.0125em;
+}
+
+mat-list-item.link {
+  margin: 4px;
+  width: calc(100% - 8px);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+mat-list-item.link:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+
+.search-form mat-form-field {
+  width: 100%;
+}
+
+.search-form {
+  margin-top: 10px;
+}
+
+.search-form .mat-mdc-form-field-bottom-align {
+  height: 0;
+}

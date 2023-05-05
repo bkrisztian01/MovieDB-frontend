@@ -1,22 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { MovieDbService } from './services/movie-db.service';
-import { Movie } from './models/movie';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'The Movie DB copy';
-  movies: Movie[];
-
-  constructor(private movieDbService: MovieDbService) {}
-
-  ngOnInit(): void {
-    this.movieDbService.getDiscoverMovies().subscribe((data) => {
-      this.movies = data.results;
-      console.log(this.movies);
-    });
-  }
 }

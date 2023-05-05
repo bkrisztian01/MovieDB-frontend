@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Movie } from '../models/Movie';
 import { Show } from '../models/Show';
+import { DiscoverResult, SearchResult } from '../models/SearchResult';
 
 const httpHeaders = {
   headers: new HttpHeaders({
@@ -28,7 +29,7 @@ export class MovieDbService {
       },
     };
 
-    return this.http.get<{ page: number; results: Movie[] }>(url, options);
+    return this.http.get<DiscoverResult<Movie>>(url, options);
   }
 
   getDiscoverShows(page = 1) {
@@ -40,7 +41,7 @@ export class MovieDbService {
       },
     };
 
-    return this.http.get<{ page: number; results: Show[] }>(url, options);
+    return this.http.get<DiscoverResult<Show>>(url, options);
   }
 
   getMovieById(id: number) {
@@ -49,7 +50,7 @@ export class MovieDbService {
       ...httpHeaders,
     };
 
-    return this.http.get(url, options);
+    return this.http.get<Movie>(url, options);
   }
 
   getShowById(id: number) {
@@ -58,6 +59,19 @@ export class MovieDbService {
       ...httpHeaders,
     };
 
-    return this.http.get(url, options);
+    return this.http.get<Show>(url, options);
+  }
+
+  searchMovie(query: string, page = 1) {
+    const url = `${this.apiUrl}/search/movie`;
+    const options = {
+      ...httpHeaders,
+      params: {
+        page,
+        query,
+      },
+    };
+
+    return this.http.get<SearchResult<Movie>>(url, options);
   }
 }

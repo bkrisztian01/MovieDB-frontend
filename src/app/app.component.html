@@ -3,15 +3,7 @@
     <p class="title">MovieDB</p>
     <mat-divider />
 
-    <form class="search-form">
-      <mat-form-field>
-        <mat-label>Search</mat-label>
-        <input matInput type="text" />
-        <button mat-icon-button matSuffix type="submit">
-          <mat-icon>search</mat-icon>
-        </button>
-      </mat-form-field>
-    </form>
+    <app-search-form (searchSubmit)="drawer.toggle()" />
 
     <mat-list>
       <mat-list-item class="link" routerLink="/" (click)="drawer.toggle()">
@@ -30,7 +22,11 @@
         <mat-icon matListItemIcon>movie</mat-icon>
         <div matListItemTitle>Movies</div>
       </mat-list-item>
-      <mat-list-item class="link" routerLink="/" (click)="drawer.toggle()">
+      <mat-list-item
+        class="link"
+        routerLink="/discover/tv"
+        (click)="drawer.toggle()"
+      >
         <mat-icon matListItemIcon>tv</mat-icon>
         <div matListItemTitle>TV shows</div>
       </mat-list-item>

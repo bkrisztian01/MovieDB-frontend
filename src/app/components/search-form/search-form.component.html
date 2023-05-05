@@ -1,0 +1,12 @@
+<form class="search-form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput type="text" formControlName="query" />
+    <mat-error *ngIf="searchForm.invalid">
+      Search query is required.
+    </mat-error>
+    <button mat-icon-button matSuffix type="submit">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</form>

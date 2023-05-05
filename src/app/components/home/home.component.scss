@@ -4,3 +4,15 @@
   margin: 0 auto;
   max-width: var(--maxPrimaryPageWidth);
 }
+
+.home-container section {
+  margin: 20px 0;
+}
+
+.search-section {
+  padding: 10px;
+}
+
+.search-section mat-card-content {
+  margin-top: 10px;
+}

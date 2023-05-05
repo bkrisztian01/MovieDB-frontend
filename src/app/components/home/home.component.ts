@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MovieScrollItem } from 'src/app/models/MovieScrollItem';
 import { MovieDbService } from 'src/app/services/movie-db.service';
 
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
         posterPath: movie.poster_path,
       }));
     });
+
     this.movieDbService.getDiscoverShows().subscribe((data) => {
       this.discoverShows = data.results.map((show) => ({
         id: show.id,

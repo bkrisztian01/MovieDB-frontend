@@ -62,10 +62,6 @@ mat-list-item.link:hover {
   width: 100%;
 }
 
-.search-form {
-  margin-top: 10px;
-}
-
-.search-form .mat-mdc-form-field-bottom-align {
-  height: 0;
+mat-drawer-container mat-divider {
+  margin-bottom: 10px;
 }

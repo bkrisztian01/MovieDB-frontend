@@ -3,7 +3,7 @@
     <p class="title">MovieDB</p>
     <mat-divider />
 
-    <app-search-form (searchSubmit)="drawer.toggle()" />
+    <app-search-form (searchSubmit)="drawer.toggle()" [clearOnSubmit]="true" />
 
     <mat-list>
       <mat-list-item class="link" routerLink="/" (click)="drawer.toggle()">

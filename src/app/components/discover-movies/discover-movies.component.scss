@@ -1,0 +1,18 @@
+.discover-movies-container {
+  max-width: 800px;
+}
+
+.discover-movies-container .result-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.discover-movies-container .item {
+  width: fit-content;
+}
+
+.discover-movies-container mat-card-title {
+  font-size: x-large;
+  margin-bottom: 20px;
+}

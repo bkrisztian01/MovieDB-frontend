@@ -1,1 +1,27 @@
-<p>discover-movies works!</p>
+<div class="main-container discover-movies-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> Discover movies </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="result-grid">
+        <app-movie-scroll-item
+          class="item"
+          *ngFor="let movie of discoverMoviesResult.results"
+          [movie]="movie"
+          itemPathPrefix="/movie"
+        />
+      </div>
+
+      <mat-paginator
+        class="mat-app-background"
+        hidePageSize="true"
+        aria-label="Select page"
+        [length]="discoverMoviesResult.total_results"
+        [pageSize]="20"
+        [pageIndex]="page - 1"
+        (page)="handlePageEvent($event)"
+      />
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,10 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MovieScrollItem } from 'src/app/models/MovieScrollItem';
+import { DiscoverResult } from 'src/app/models/SearchResult';
+import { MovieDbService } from 'src/app/services/movie-db.service';
 
 @Component({
   selector: 'app-discover-movies',
   templateUrl: './discover-movies.component.html',
-  styleUrls: ['./discover-movies.component.scss']
+  styleUrls: ['./discover-movies.component.scss'],
 })
-export class DiscoverMoviesComponent {
+export class DiscoverMoviesComponent implements OnInit {
+  discoverMoviesResult: DiscoverResult<MovieScrollItem>;
+  page: number;
 
+  constructor(
+    private movieDbService: MovieDbService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.route.queryParamMap.subscribe((queries) => {
+      const pageNumber = queries.get('page');
+      this.page = Number(pageNumber) || 1;
+
+      this.movieDbService.getDiscoverMovies(this.page).subscribe((data) => {
+        this.discoverMoviesResult = {
+          ...data,
+          results: data.results.map((movie) => ({
+            id: movie.id,
+            title: movie.title,
+            voteAverage: movie.vote_average,
+            posterPath: movie.poster_path,
+          })),
+        };
+      });
+    });
+  }
+
+  handlePageEvent(e: PageEvent) {
+    this.page = e.pageIndex + 1;
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { ...this.route.snapshot.queryParams, page: this.page },
+    });
+  }
 }

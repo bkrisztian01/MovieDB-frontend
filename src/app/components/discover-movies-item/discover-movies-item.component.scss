@@ -1,0 +1,30 @@
+.discover-item {
+  width: 154px;
+  margin-bottom: 8px;
+  flex-grow: 1;
+}
+
+.discover-item img {
+  width: fit-content;
+  height: 100%;
+  position: static;
+}
+
+.title {
+  color: black;
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 500;
+}
+
+.discover-item img {
+  border-radius: 6px;
+}
+
+.discover-item img:hover {
+  cursor: pointer;
+}
+
+.discover-item-footer {
+  margin-bottom: 15px;
+}

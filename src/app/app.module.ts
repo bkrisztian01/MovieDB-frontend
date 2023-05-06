@@ -13,6 +13,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -29,6 +31,7 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 import { SearchMovieResultComponent } from './components/search-movie-result/search-movie-result.component';
 import { FallbackImgDirective } from './directives/fallback-img.directive';
 import { SearchFormComponent } from './components/search-form/search-form.component';
+import { DiscoverMoviesItemComponent } from './components/discover-movies-item/discover-movies-item.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,7 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     SearchMovieResultComponent,
     FallbackImgDirective,
     SearchFormComponent,
+    DiscoverMoviesItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,16 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     MatTabsModule,
     ReactiveFormsModule,
     MatPaginatorModule,
+    MatGridListModule,
+    NgCircleProgressModule.forRoot({
+      backgroundStrokeWidth: 0,
+      backgroundPadding: 0,
+      radius: 10,
+      space: 10,
+      innerStrokeWidth: 0,
+      titleFontSize: '25',
+      showSubtitle: false,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

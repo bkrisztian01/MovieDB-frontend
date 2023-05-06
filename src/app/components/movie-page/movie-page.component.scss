@@ -1,0 +1,39 @@
+@import "../../../styles.scss";
+
+.movie-page-container .main-content {
+  display: flex;
+  align-items: center;
+}
+
+.movie-page-container .main-content .poster {
+  width: 240px;
+}
+
+.movie-page-container .main-content .texts {
+  margin-left: 15px;
+}
+
+.movie-page-container .main-content .texts * {
+  margin-bottom: 10px;
+}
+
+.movie-page-container .main-content .texts header * {
+  margin: 0;
+}
+
+.movie-page-container .main-content .title {
+  font-weight: 500;
+  font-size: xx-large;
+}
+
+.movie-page-container mat-card {
+  margin-top: 20px;
+  background-color: map-get($moviedb-primary, default);
+  color: map-get($moviedb-primary, default-contrast);
+}
+
+.movie-page-container .main-content .vote-average {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

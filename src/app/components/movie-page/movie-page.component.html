@@ -1,1 +1,40 @@
-<p>movie-page works!</p>
+<div *ngIf="!!movie" class="main-container movie-page-container">
+  <mat-card>
+    <mat-card-content class="main-content">
+      <img
+        class="poster"
+        fallback=""
+        src="https://image.tmdb.org/t/p/w342/{{ movie.poster_path }}"
+      />
+      <div class="texts">
+        <header>
+          <h1 class="title">{{ movie.title }}</h1>
+          <h4>Original title: {{ movie.original_title }}</h4>
+          <h4>
+            {{ releaseYear() }} &#8226; {{ genres() }} &#8226; {{ runtime() }}
+          </h4>
+          <div class="vote-average">
+            <circle-progress
+              [percent]="voteAverage()"
+              [radius]="25"
+              unitsColor="white"
+              titleColor="white"
+              titleFontSize="14"
+              [outerStrokeWidth]="4"
+              [innerStrokeWidth]="0"
+              [outerStrokeColor]="'#78C000'"
+              [innerStrokeColor]="'#C7E596'"
+              [animation]="true"
+              [animationDuration]="300"
+            ></circle-progress>
+            User score
+          </div>
+        </header>
+        <div class="overview">
+          <h2>Overview</h2>
+          <p>{{ movie.overview }}</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -33,7 +33,7 @@ export class SearchPageComponent implements OnInit {
       }
       this.query = query;
 
-      const pageNumber = this.route.snapshot.queryParamMap.get('page');
+      const pageNumber = queries.get('page');
       this.page = Number(pageNumber) || 1;
 
       this.movieDbService

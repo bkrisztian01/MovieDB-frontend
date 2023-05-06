@@ -1,11 +1,13 @@
 {
+  "[scss]": {
+    "editor.tabSize": 2
+  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     },
-    "editor.formatOnSave": false,
-    "editor.tabSize": 2
+    "editor.formatOnSave": false
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",

@@ -1,7 +1,13 @@
+@import "../../../styles.scss";
+
 .search-form mat-form-field {
   width: 100%;
 }
 
 .search-form .mat-mdc-form-field-bottom-align {
   height: 0;
+}
+
+.search-form mat-icon {
+  color: map-get($moviedb-primary, default);
 }

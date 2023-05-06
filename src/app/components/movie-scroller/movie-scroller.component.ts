@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MovieScrollItem } from 'src/app/models/MovieScrollItem';
+import { MovieItem } from 'src/app/models/MovieItem';
 
 @Component({
   selector: 'app-movie-scroller',
@@ -8,7 +8,7 @@ import { MovieScrollItem } from 'src/app/models/MovieScrollItem';
 })
 export class MovieScrollerComponent {
   @Input() title: string;
-  @Input() movies: MovieScrollItem[];
+  @Input() movies: MovieItem[];
   @Input() morePath: string;
   @Input() itemPathPrefix: string;
 }

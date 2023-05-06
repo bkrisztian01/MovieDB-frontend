@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MovieScrollItemComponent } from './movie-scroll-item.component';
+import { MovieItemComponent } from './movie-item.component';
 
 describe('MovieScrollItemComponent', () => {
-  let component: MovieScrollItemComponent;
-  let fixture: ComponentFixture<MovieScrollItemComponent>;
+  let component: MovieItemComponent;
+  let fixture: ComponentFixture<MovieItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MovieScrollItemComponent ]
-    })
-    .compileComponents();
+      declarations: [MovieItemComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(MovieScrollItemComponent);
+    fixture = TestBed.createComponent(MovieItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

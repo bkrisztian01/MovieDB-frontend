@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MovieScrollItem } from 'src/app/models/MovieScrollItem';
+import { MovieItem } from 'src/app/models/MovieItem';
 import { DiscoverResult } from 'src/app/models/SearchResult';
 import { MovieDbService } from 'src/app/services/movie-db.service';
 
@@ -11,7 +11,7 @@ import { MovieDbService } from 'src/app/services/movie-db.service';
   styleUrls: ['./discover-movies.component.scss'],
 })
 export class DiscoverMoviesComponent implements OnInit {
-  discoverMoviesResult: DiscoverResult<MovieScrollItem>;
+  discoverMoviesResult: DiscoverResult<MovieItem>;
   page: number;
 
   constructor(

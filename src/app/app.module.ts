@@ -22,7 +22,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MovieScrollItemComponent } from './components/movie-scroll-item/movie-scroll-item.component';
+import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { MovieScrollerComponent } from './components/movie-scroller/movie-scroller.component';
 import { DiscoverMoviesComponent } from './components/discover-movies/discover-movies.component';
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
@@ -31,7 +31,6 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 import { SearchMovieResultComponent } from './components/search-movie-result/search-movie-result.component';
 import { FallbackImgDirective } from './directives/fallback-img.directive';
 import { SearchFormComponent } from './components/search-form/search-form.component';
-import { DiscoverMoviesItemComponent } from './components/discover-movies-item/discover-movies-item.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,7 @@ import { DiscoverMoviesItemComponent } from './components/discover-movies-item/d
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    MovieScrollItemComponent,
+    MovieItemComponent,
     MovieScrollerComponent,
     DiscoverMoviesComponent,
     MoviePageComponent,
@@ -48,7 +47,6 @@ import { DiscoverMoviesItemComponent } from './components/discover-movies-item/d
     SearchMovieResultComponent,
     FallbackImgDirective,
     SearchFormComponent,
-    DiscoverMoviesItemComponent,
   ],
   imports: [
     BrowserModule,

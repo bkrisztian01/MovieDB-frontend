@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { MovieScrollItem } from 'src/app/models/MovieScrollItem';
+import { MovieItem } from 'src/app/models/MovieItem';
 import { MovieDbService } from 'src/app/services/movie-db.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { MovieDbService } from 'src/app/services/movie-db.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  discoverMovies: MovieScrollItem[];
-  discoverShows: MovieScrollItem[];
+  discoverMovies: MovieItem[];
+  discoverShows: MovieItem[];
 
   constructor(private movieDbService: MovieDbService) {}
 

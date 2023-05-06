@@ -9,7 +9,7 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
-    path: 'discover/movies',
+    path: 'discover/movie',
     component: DiscoverMoviesComponent,
   },
   {
@@ -17,7 +17,11 @@ const routes: Routes = [
     component: DiscoverTvShowsComponent,
   },
   {
-    path: 'movies/:id',
+    path: 'movie/:id',
+    component: MoviePageComponent,
+  },
+  {
+    path: 'tv/:id',
     component: MoviePageComponent,
   },
   {

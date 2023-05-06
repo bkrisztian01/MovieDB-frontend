@@ -1,10 +1,10 @@
-<div class="search-result-item">
+<div class="search-result-item" (click)="onClick()">
   <img
     fallback="/assets/poster-fallback.png"
-    src="https://image.tmdb.org/t/p/w92/{{ movie.poster_path }}"
+    src="https://image.tmdb.org/t/p/w92/{{ posterPath }}"
   />
   <div class="search-result-details">
-    <h3>{{ movie.title }}</h3>
-    <p>{{ movie.overview }}</p>
+    <h3>{{ title }}</h3>
+    <p>{{ overview }}</p>
   </div>
 </div>

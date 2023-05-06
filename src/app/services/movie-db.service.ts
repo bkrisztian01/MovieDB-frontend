@@ -74,4 +74,17 @@ export class MovieDbService {
 
     return this.http.get<SearchResult<Movie>>(url, options);
   }
+
+  searchShow(query: string, page = 1) {
+    const url = `${this.apiUrl}/search/tv`;
+    const options = {
+      ...httpHeaders,
+      params: {
+        page,
+        query,
+      },
+    };
+
+    return this.http.get<SearchResult<Show>>(url, options);
+  }
 }

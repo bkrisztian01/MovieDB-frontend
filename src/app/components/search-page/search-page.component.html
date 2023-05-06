@@ -3,23 +3,54 @@
     <app-search-form [defaultValue]="query" />
   </div>
 
-  <mat-tab-group animationDuration="0ms">
-    <mat-tab label="Movies">
+  <mat-tab-group
+    animationDuration="0ms"
+    (selectedTabChange)="onSelectedTabChange()"
+  >
+    <mat-tab
+      *ngIf="!!movieSearchResult"
+      label="Movies ({{ movieSearchResult.total_results }})"
+    >
       <app-search-movie-result
         *ngFor="let movie of movieSearchResult.results"
-        [movie]="movie"
+        [title]="movie.title"
+        [overview]="movie.overview"
+        [posterPath]="movie.poster_path"
+        [id]="movie.id"
+        type="movie"
+      />
+      <mat-paginator
+        class="mat-app-background"
+        hidePageSize="true"
+        aria-label="Select page"
+        [length]="movieSearchResult.total_results"
+        [pageSize]="20"
+        [pageIndex]="page - 1"
+        (page)="handlePageEvent($event)"
       />
     </mat-tab>
-    <mat-tab label="TV Shows">TV Shows</mat-tab>
+
+    <mat-tab
+      *ngIf="!!showSearchResult"
+      label="TV Shows ({{ showSearchResult.total_results }})"
+    >
+      <app-search-movie-result
+        *ngFor="let show of showSearchResult.results"
+        [title]="show.name"
+        [overview]="show.overview"
+        [posterPath]="show.poster_path"
+        [id]="show.id"
+        type="tv"
+      />
+      <mat-paginator
+        class="mat-app-background"
+        hidePageSize="true"
+        aria-label="Select page"
+        [length]="showSearchResult.total_results"
+        [pageSize]="20"
+        [pageIndex]="page - 1"
+        (page)="handlePageEvent($event)"
+      />
+    </mat-tab>
   </mat-tab-group>
-  <mat-paginator
-    class="mat-app-background"
-    hidePageSize="true"
-    aria-label="Select page"
-    [length]="movieSearchResult.total_results"
-    [pageSize]="20"
-    [pageIndex]="page - 1"
-    (page)="handlePageEvent($event)"
-  >
-  </mat-paginator>
 </div>

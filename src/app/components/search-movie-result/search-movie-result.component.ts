@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Movie } from 'src/app/models/Movie';
 
 @Component({
@@ -7,5 +8,15 @@ import { Movie } from 'src/app/models/Movie';
   styleUrls: ['./search-movie-result.component.scss'],
 })
 export class SearchMovieResultComponent {
-  @Input() movie: Movie;
+  @Input() id: number;
+  @Input() title: string;
+  @Input() overview: string;
+  @Input() posterPath: string;
+  @Input() type: 'tv' | 'movie';
+
+  constructor(private router: Router) {}
+
+  onClick() {
+    this.router.navigate([`/${this.type}`, this.id]);
+  }
 }

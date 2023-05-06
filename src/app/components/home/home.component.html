@@ -17,20 +17,20 @@
   <section>
     <app-movie-scroller
       title="Discover movies"
-      morePath="discover/movies"
+      morePath="discover/movie"
       [movies]="discoverMovies"
       *ngIf="!!discoverMovies"
-      itemPathPrefix="/movies"
+      itemPathPrefix="/movie"
     />
   </section>
 
   <section>
     <app-movie-scroller
       title="Discover TV shows"
-      morePath="discover/movies"
+      morePath="discover/movie"
       [movies]="discoverShows"
       *ngIf="!!discoverShows"
-      itemPathPrefix="/movies"
+      itemPathPrefix="/tv"
     />
   </section>
 </div>

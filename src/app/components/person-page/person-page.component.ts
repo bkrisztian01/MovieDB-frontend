@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Credit } from 'src/app/models/Credit';
+import { Credits } from 'src/app/models/Credits';
 import { Person } from 'src/app/models/Person';
 import { MovieDbService } from 'src/app/services/movie-db.service';
 import Utils from 'src/app/utils';
@@ -12,6 +14,8 @@ import Utils from 'src/app/utils';
 export class PersonPageComponent implements OnInit {
   personId: number;
   person: Person;
+  credits: Credits;
+  utils = Utils;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,12 +33,29 @@ export class PersonPageComponent implements OnInit {
 
       this.movieDbService.getPersonById(this.personId).subscribe((person) => {
         this.person = person;
-        console.log(this.person);
       });
+
+      this.movieDbService
+        .getCombinedCreditsOfPerson(this.personId)
+        .subscribe((credits) => {
+          this.credits = credits;
+          console.log(credits);
+          this.credits.cast.sort((a, b) => {
+            const dateA = a.release_date || a.first_air_date;
+            const dateB = b.release_date || b.first_air_date;
+            return (
+              Utils.dateStringToYear(dateB) - Utils.dateStringToYear(dateA)
+            );
+          });
+        });
     });
   }
 
   gender() {
     return Utils.genderMap.get(this.person.gender);
+  }
+
+  mediaLink(credit: Credit) {
+    return `/${credit.media_type}/${credit.id}`;
   }
 }

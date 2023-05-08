@@ -3,8 +3,8 @@
     <mat-card class="main">
       <mat-card-content class="main-content">
         <img
+          fallback="/assets/poster-fallback.png"
           class="poster"
-          fallback=""
           src="https://image.tmdb.org/t/p/w342/{{ movie.poster_path }}"
         />
         <div class="texts">
@@ -27,7 +27,7 @@
                 [innerStrokeColor]="'#C7E596'"
                 [animation]="true"
                 [animationDuration]="300"
-              ></circle-progress>
+              />
               User score
             </div>
           </header>
@@ -40,7 +40,7 @@
     </mat-card>
   </section>
 
-  <section>
+  <section *ngIf="!!credits?.length">
     <app-cast-scroller [credits]="credits" />
   </section>
 
@@ -49,29 +49,31 @@
       <mat-card-content>
         <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
           <mat-tab label="Backdrops">
-            <div *ngIf="!!images?.backdrops" class="image-scroller">
+            <div class="image-scroller">
               <img
-                *ngFor="let image of images.backdrops"
+                fallback="/assets/backdrop-fallback.png"
+                *ngFor="let image of images?.backdrops"
                 class="movie-image"
                 src="https://image.tmdb.org/t/p/w780/{{ image.file_path }}"
                 height="300px"
               />
-              <div *ngIf="!images?.backdrops" class="no-item">
-                There's no images.
+              <div *ngIf="!images?.backdrops?.length" class="no-item">
+                There are no backdrops.
               </div>
             </div>
           </mat-tab>
           <mat-tab label="Posters">
-            <div *ngIf="!!images?.posters" class="image-scroller">
+            <div class="image-scroller">
               <img
-                *ngFor="let image of images.posters"
+                fallback="/assets/poster-fallback.png"
+                *ngFor="let image of images?.posters"
                 class="movie-image"
                 src="https://image.tmdb.org/t/p/w300/{{ image.file_path }}"
                 height="300px"
               />
-            </div>
-            <div *ngIf="!images?.posters" class="no-item">
-              There's no images.
+              <div *ngIf="!images?.posters?.length" class="no-item">
+                There are no posters.
+              </div>
             </div>
           </mat-tab>
         </mat-tab-group>

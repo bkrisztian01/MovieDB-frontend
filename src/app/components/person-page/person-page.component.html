@@ -1,35 +1,83 @@
-<div class="main-container person-container">
+<div *ngIf="!!person" class="main-container person-container">
   <section class="personal-info-container">
     <img
+      fallback="/assets/poster-fallback.png"
       class="profile-picture"
       src="https://image.tmdb.org/t/p/h632/{{ person.profile_path }}"
     />
     <div class="personal-info">
-      <h2>Personal Info</h2>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title> Personal Info </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <span class="detail">Known For</span>
+          <p>{{ person.known_for_department }}</p>
 
-      <span class="detail">Known For</span>
-      <p>{{ person.known_for_department }}</p>
+          <span class="detail">Gender</span>
+          <p>{{ gender() }}</p>
 
-      <span class="detail">Gender</span>
-      <p>{{ gender() }}</p>
+          <span class="detail">Birthday</span>
+          <p>{{ person.birthday }}</p>
 
-      <span class="detail">Birthday</span>
-      <p>{{ person.birthday }}</p>
+          <span class="detail">Place of Birth</span>
+          <p>{{ person.place_of_birth }}</p>
 
-      <span class="detail">Place of Birth</span>
-      <p>{{ person.place_of_birth }}</p>
-
-      <span class="detail">Also Known As</span>
-      <p *ngFor="let alias of person.also_known_as" class="alias">
-        {{ alias }}
-      </p>
+          <span class="detail">Also Known As</span>
+          <p *ngFor="let alias of person.also_known_as" class="alias">
+            {{ alias }}
+          </p>
+        </mat-card-content>
+      </mat-card>
     </div>
   </section>
   <section class="career-info-container">
-    <h1 class="name">
-      {{ person.name }}
-    </h1>
-    <h2>Biography</h2>
-    <p class="biography">{{ person.biography }}</p>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h1 class="name">
+            {{ person.name }}
+          </h1>
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="!!person.biography">
+          Biography
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p *ngIf="!!person.biography" class="biography">
+          {{ person.biography }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="roles-container" *ngIf="!!credits">
+      <mat-card-header>
+        <mat-card-title> Roles </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="role" *ngFor="let credit of credits.cast">
+          <p>
+            <span *ngIf="!!(credit.release_date || credit.first_air_date)">
+              {{
+                utils.dateStringToYear(
+                  credit.release_date || credit.first_air_date
+                )
+              }}
+              •
+            </span>
+            <span class="credit-title" [routerLink]="mediaLink(credit)">
+              {{ credit.name || credit.title }}
+            </span>
+            <span *ngIf="!!credit.episode_count">
+              ({{ credit.episode_count }} episodes)
+            </span>
+          </p>
+          <p *ngIf="!!credit.character" class="character">
+            as
+            {{ credit.character }}
+          </p>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </section>
 </div>

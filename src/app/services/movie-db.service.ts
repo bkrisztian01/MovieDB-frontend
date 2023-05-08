@@ -171,4 +171,16 @@ export class MovieDbService {
 
     return this.http.get<Person>(url, options);
   }
+
+  getCombinedCreditsOfPerson(personId: number) {
+    const url = `${this.apiUrl}/person/${personId}/combined_credits`;
+    const options = {
+      ...httpHeaders,
+      params: {
+        language: 'en',
+      },
+    };
+
+    return this.http.get<Credits>(url, options);
+  }
 }

@@ -25,7 +25,7 @@ export default class Utils {
    * @returns The year
    */
   static dateStringToYear(dateString: string): number {
-    const date = new Date(dateString);
+    const date = new Date(dateString || 0);
     return date.getFullYear();
   }
 

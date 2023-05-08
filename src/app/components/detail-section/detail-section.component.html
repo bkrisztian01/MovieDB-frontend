@@ -30,7 +30,7 @@
           User score
         </div>
       </header>
-      <div class="overview">
+      <div *ngIf="!!overview" class="overview">
         <h2>Overview</h2>
         <p>{{ overview }}</p>
       </div>

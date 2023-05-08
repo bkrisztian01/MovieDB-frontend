@@ -34,6 +34,9 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 import { CastItemComponent } from './components/cast-item/cast-item.component';
 import { CastScrollerComponent } from './components/cast-scroller/cast-scroller.component';
 import { PersonPageComponent } from './components/person-page/person-page.component';
+import { TvShowPageComponent } from './components/tv-show-page/tv-show-page.component';
+import { ImagesSectionComponent } from './components/images-section/images-section.component';
+import { DetailSectionComponent } from './components/detail-section/detail-section.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { PersonPageComponent } from './components/person-page/person-page.compon
     CastItemComponent,
     CastScrollerComponent,
     PersonPageComponent,
+    TvShowPageComponent,
+    ImagesSectionComponent,
+    DetailSectionComponent,
   ],
   imports: [
     BrowserModule,

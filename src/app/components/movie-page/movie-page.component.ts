@@ -42,23 +42,8 @@ export class MoviePageComponent implements OnInit {
 
       this.movieDbService.getMovieImages(movieId).subscribe((images) => {
         this.images = images;
+        console.log('Page', this.images);
       });
     });
-  }
-
-  genres(): string {
-    return this.movie.genres.map((g) => g.name).join(', ');
-  }
-
-  runtime(): string {
-    return Utils.formatMinutes(this.movie.runtime);
-  }
-
-  releaseYear(): number {
-    return Utils.dateStringToYear(this.movie.release_date);
-  }
-
-  voteAverage(): number {
-    return this.movie.vote_average * 10;
   }
 }

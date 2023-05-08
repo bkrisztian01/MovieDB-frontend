@@ -1,0 +1,14 @@
+<mat-card class="scroller-container">
+  <mat-card-header>
+    <div class="header">
+      <mat-card-title class="section title">Credits</mat-card-title>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="scroller">
+      <app-cast-item *ngFor="let credit of credits" [credit]="credit" />
+      <div *ngIf="!credits" class="no-item">There's no credits.</div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer />
+</mat-card>

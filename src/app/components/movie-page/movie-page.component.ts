@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/models/Movie';
+import { Credit } from 'src/app/models/Credit';
 import { MovieDbService } from 'src/app/services/movie-db.service';
 import Utils from 'src/app/utils';
+import { Images } from 'src/app/models/Images';
 
 @Component({
   selector: 'app-movie-page',
@@ -11,6 +13,8 @@ import Utils from 'src/app/utils';
 })
 export class MoviePageComponent implements OnInit {
   movie: Movie;
+  credits: Credit[];
+  images: Images;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +33,16 @@ export class MoviePageComponent implements OnInit {
       this.movieDbService.getMovieById(movieId).subscribe((movie) => {
         this.movie = movie;
         console.log(movie);
+      });
+
+      this.movieDbService.getMovieCredits(movieId).subscribe((credits) => {
+        this.credits = credits.cast
+          .filter((credit) => !!credit.character)
+          .slice(0, 10);
+      });
+
+      this.movieDbService.getMovieImages(movieId).subscribe((images) => {
+        this.images = images;
       });
     });
   }

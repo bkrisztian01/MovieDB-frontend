@@ -31,6 +31,8 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 import { SearchMovieResultComponent } from './components/search-movie-result/search-movie-result.component';
 import { FallbackImgDirective } from './directives/fallback-img.directive';
 import { SearchFormComponent } from './components/search-form/search-form.component';
+import { CastItemComponent } from './components/cast-item/cast-item.component';
+import { CastScrollerComponent } from './components/cast-scroller/cast-scroller.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     SearchMovieResultComponent,
     FallbackImgDirective,
     SearchFormComponent,
+    CastItemComponent,
+    CastScrollerComponent,
   ],
   imports: [
     BrowserModule,

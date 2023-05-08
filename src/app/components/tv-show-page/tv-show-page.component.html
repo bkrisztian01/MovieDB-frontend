@@ -17,6 +17,49 @@
   </section>
 
   <section>
+    <mat-accordion class="season-container">
+      <mat-expansion-panel
+        *ngFor="let season of show.seasons"
+        (opened)="fetchSeasonEpisodes(season.season_number)"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ season.name }} </mat-panel-title>
+          <mat-panel-description>
+            {{ season.episode_count }} episodes
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngIf="!!season.overview">
+          {{ season.overview }}
+        </p>
+        <div
+          *ngIf="seasonEpisodes.has(season.season_number)"
+          class="episode-container"
+        >
+          <div
+            class="episode"
+            *ngFor="
+              let episode of seasonEpisodes.get(season.season_number)?.episodes
+            "
+          >
+            <img
+              fallback="/assets/still-fallback.png"
+              src="https://image.tmdb.org/t/p/w300/{{ episode.still_path }}"
+              width="300px"
+            />
+            <div class="details">
+              <p class="title">
+                #{{ episode.episode_number }} {{ episode.name }} &#8226;
+                {{ util.formatMinutes(episode.runtime) }}
+              </p>
+              <p>{{ episode.overview }}</p>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>
+
+  <section>
     <app-images-section [images]="images" />
   </section>
 </div>

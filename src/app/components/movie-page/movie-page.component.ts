@@ -42,7 +42,6 @@ export class MoviePageComponent implements OnInit {
 
       this.movieDbService.getMovieImages(movieId).subscribe((images) => {
         this.images = images;
-        console.log('Page', this.images);
       });
     });
   }

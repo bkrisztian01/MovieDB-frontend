@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Credit } from 'src/app/models/Credit';
+import { Episodes } from 'src/app/models/Episodes';
 import { Images } from 'src/app/models/Images';
-import { Movie } from 'src/app/models/Movie';
 import { Show } from 'src/app/models/Show';
 import { MovieDbService } from 'src/app/services/movie-db.service';
+import Utils from 'src/app/utils';
 
 @Component({
   selector: 'app-tv-show-page',
@@ -12,9 +13,11 @@ import { MovieDbService } from 'src/app/services/movie-db.service';
   styleUrls: ['./tv-show-page.component.scss'],
 })
 export class TvShowPageComponent implements OnInit {
+  util = Utils;
   show: Show;
   credits: Credit[];
   images: Images;
+  seasonEpisodes: Map<number, Episodes> = new Map<number, Episodes>();
 
   constructor(
     private route: ActivatedRoute,
@@ -36,14 +39,25 @@ export class TvShowPageComponent implements OnInit {
 
       this.movieDbService.getShowCredits(tvShowId).subscribe((credits) => {
         this.credits = credits.cast
-          .filter((credit) => !!credit.character)
-          .slice(0, 10);
+          .filter((credit) => !!credit.roles[0].character)
+          .slice(0, 12);
       });
 
       this.movieDbService.getShowImages(tvShowId).subscribe((images) => {
         this.images = images;
-        console.log('Page', this.images);
       });
     });
+  }
+
+  fetchSeasonEpisodes(seasonNumber: number) {
+    if (this.seasonEpisodes.has(seasonNumber)) {
+      return;
+    }
+
+    this.movieDbService
+      .getEpisodesOfSeason(this.show.id, seasonNumber)
+      .subscribe((episodes) => {
+        this.seasonEpisodes.set(seasonNumber, episodes);
+      });
   }
 }

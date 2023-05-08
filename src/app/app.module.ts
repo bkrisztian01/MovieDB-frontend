@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -77,6 +78,7 @@ import { DetailSectionComponent } from './components/detail-section/detail-secti
     ReactiveFormsModule,
     MatPaginatorModule,
     MatGridListModule,
+    MatExpansionModule,
     NgCircleProgressModule.forRoot({
       backgroundStrokeWidth: 0,
       backgroundPadding: 0,

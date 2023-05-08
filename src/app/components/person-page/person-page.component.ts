@@ -39,7 +39,6 @@ export class PersonPageComponent implements OnInit {
         .getCombinedCreditsOfPerson(this.personId)
         .subscribe((credits) => {
           this.credits = credits;
-          console.log(credits);
           this.credits.cast.sort((a, b) => {
             const dateA = a.release_date || a.first_air_date;
             const dateB = b.release_date || b.first_air_date;

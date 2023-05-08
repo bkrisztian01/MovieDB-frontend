@@ -48,7 +48,8 @@
             />
             <div class="details">
               <p class="title">
-                {{ episode.episode_number }} {{ episode.name }}
+                #{{ episode.episode_number }} {{ episode.name }} &#8226;
+                {{ util.formatMinutes(episode.runtime) }}
               </p>
               <p>{{ episode.overview }}</p>
             </div>

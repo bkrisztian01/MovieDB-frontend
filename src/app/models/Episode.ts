@@ -3,4 +3,5 @@ export type Episode = {
   episode_number: number;
   overview: string;
   still_path: string;
+  runtime: number;
 };

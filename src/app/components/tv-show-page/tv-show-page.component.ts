@@ -6,6 +6,7 @@ import { Images } from 'src/app/models/Images';
 import { Movie } from 'src/app/models/Movie';
 import { Show } from 'src/app/models/Show';
 import { MovieDbService } from 'src/app/services/movie-db.service';
+import Utils from 'src/app/utils';
 
 @Component({
   selector: 'app-tv-show-page',
@@ -13,6 +14,7 @@ import { MovieDbService } from 'src/app/services/movie-db.service';
   styleUrls: ['./tv-show-page.component.scss'],
 })
 export class TvShowPageComponent implements OnInit {
+  util = Utils;
   show: Show;
   credits: Credit[];
   images: Images;
@@ -34,7 +36,6 @@ export class TvShowPageComponent implements OnInit {
 
       this.movieDbService.getShowById(tvShowId).subscribe((show) => {
         this.show = show;
-        console.log(show);
       });
 
       this.movieDbService.getShowCredits(tvShowId).subscribe((credits) => {

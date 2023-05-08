@@ -5,10 +5,12 @@
 .season-container .episode-container .episode {
   display: flex;
   align-items: center;
+  margin: 10px 0;
 }
 
 .season-container .episode-container .episode img {
   width: 300px;
+  border-radius: 3px;
 }
 
 .season-container .episode-container .episode .details {

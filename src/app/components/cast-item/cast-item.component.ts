@@ -15,4 +15,8 @@ export class CastItemComponent {
   onClick() {
     this.router.navigate(['/person', this.credit.id]);
   }
+
+  character() {
+    return this.credit.character || this.credit.roles[0].character || '';
+  }
 }

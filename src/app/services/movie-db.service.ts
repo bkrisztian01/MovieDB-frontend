@@ -150,7 +150,7 @@ export class MovieDbService {
    * @returns The credits of the TV show.
    */
   getShowCredits(id: number) {
-    const url = `${this.apiUrl}/tv/${id}/credits`;
+    const url = `${this.apiUrl}/tv/${id}/aggregate_credits`;
     const options = {
       ...this.httpHeaders,
     };

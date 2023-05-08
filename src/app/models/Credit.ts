@@ -9,4 +9,5 @@ export type Credit = {
   profile_path: string;
   media_type: 'movie' | 'tv';
   episode_count: number | undefined;
+  roles: { character: string }[];
 };

@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Credit } from 'src/app/models/Credit';
 import { Episodes } from 'src/app/models/Episodes';
 import { Images } from 'src/app/models/Images';
-import { Movie } from 'src/app/models/Movie';
 import { Show } from 'src/app/models/Show';
 import { MovieDbService } from 'src/app/services/movie-db.service';
 import Utils from 'src/app/utils';
@@ -40,8 +39,8 @@ export class TvShowPageComponent implements OnInit {
 
       this.movieDbService.getShowCredits(tvShowId).subscribe((credits) => {
         this.credits = credits.cast
-          .filter((credit) => !!credit.character)
-          .slice(0, 10);
+          .filter((credit) => !!credit.roles[0].character)
+          .slice(0, 12);
       });
 
       this.movieDbService.getShowImages(tvShowId).subscribe((images) => {

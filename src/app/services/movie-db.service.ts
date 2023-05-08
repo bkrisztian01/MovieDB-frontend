@@ -9,16 +9,6 @@ import { Images } from '../models/Images';
 import { Person } from '../models/Person';
 
 /**
- * HTTP headers for API authentication.
- */
-const httpHeaders = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json;charset=utf-8',
-    Authorization: `Bearer ${environment.THEMOVIEDB_API_KEY}`,
-  }),
-};
-
-/**
  * Service used for accessing the TheMovieDB API.
  */
 @Injectable({
@@ -26,6 +16,16 @@ const httpHeaders = {
 })
 export class MovieDbService {
   private apiUrl = 'https://api.themoviedb.org/3';
+
+  /**
+   * HTTP headers for API authentication.
+   */
+  httpHeaders = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=utf-8',
+      Authorization: `Bearer ${environment.THEMOVIEDB_API_KEY}`,
+    }),
+  };
 
   constructor(private http: HttpClient) {}
 
@@ -37,7 +37,7 @@ export class MovieDbService {
   getDiscoverMovies(page = 1) {
     const url = `${this.apiUrl}/discover/movie`;
     const options = {
-      ...httpHeaders,
+      ...this.httpHeaders,
       params: {
         page,
       },
@@ -54,7 +54,7 @@ export class MovieDbService {
   getDiscoverShows(page = 1) {
     const url = `${this.apiUrl}/discover/tv`;
     const options = {
-      ...httpHeaders,
+      ...this.httpHeaders,
       params: {
         page,
       },
@@ -71,7 +71,7 @@ export class MovieDbService {
   getMovieById(id: number) {
     const url = `${this.apiUrl}/movie/${id}`;
     const options = {
-      ...httpHeaders,
+      ...this.httpHeaders,
     };
 
     return this.http.get<Movie>(url, options);
@@ -85,7 +85,7 @@ export class MovieDbService {
   getShowById(id: number) {
     const url = `${this.apiUrl}/tv/${id}`;
     const options = {
-      ...httpHeaders,
+      ...this.httpHeaders,
     };
 
     return this.http.get<Show>(url, options);
@@ -100,7 +100,7 @@ export class MovieDbService {
   searchMovie(query: string, page = 1) {
     const url = `${this.apiUrl}/search/movie`;
     const options = {
-      ...httpHeaders,
+      ...this.httpHeaders,
       params: {
         page,
         query,
@@ -119,7 +119,7 @@ export class MovieDbService {
   searchShow(query: string, page = 1) {
     const url = `${this.apiUrl}/search/tv`;
     const options = {
-      ...httpHeaders,
+      ...this.httpHeaders,
       params: {
         page,
         query,
@@ -137,7 +137,21 @@ export class MovieDbService {
   getMovieCredits(id: number) {
     const url = `${this.apiUrl}/movie/${id}/credits`;
     const options = {
-      ...httpHeaders,
+      ...this.httpHeaders,
+    };
+
+    return this.http.get<Credits>(url, options);
+  }
+
+  /**
+   * Get credits of a TV show.
+   * @param id - The ID of the TV show
+   * @returns The credits of the TV show.
+   */
+  getShowCredits(id: number) {
+    const url = `${this.apiUrl}/tv/${id}/credits`;
+    const options = {
+      ...this.httpHeaders,
     };
 
     return this.http.get<Credits>(url, options);
@@ -151,7 +165,24 @@ export class MovieDbService {
   getMovieImages(id: number) {
     const url = `${this.apiUrl}/movie/${id}/images`;
     const options = {
-      ...httpHeaders,
+      ...this.httpHeaders,
+      params: {
+        language: 'en',
+      },
+    };
+
+    return this.http.get<Images>(url, options);
+  }
+
+  /**
+   * Get the images that belong to a TV show.
+   * @param id - The ID of the TV shows
+   * @returns The credits of the TV show.
+   */
+  getShowImages(id: number) {
+    const url = `${this.apiUrl}/tv/${id}/images`;
+    const options = {
+      ...this.httpHeaders,
       params: {
         language: 'en',
       },
@@ -163,7 +194,7 @@ export class MovieDbService {
   getPersonById(id: number) {
     const url = `${this.apiUrl}/person/${id}`;
     const options = {
-      ...httpHeaders,
+      ...this.httpHeaders,
       params: {
         language: 'en',
       },
@@ -175,7 +206,7 @@ export class MovieDbService {
   getCombinedCreditsOfPerson(personId: number) {
     const url = `${this.apiUrl}/person/${personId}/combined_credits`;
     const options = {
-      ...httpHeaders,
+      ...this.httpHeaders,
       params: {
         language: 'en',
       },

@@ -1,1 +1,22 @@
-<p>tv-show-page works!</p>
+<div *ngIf="!!show" class="main-container tv-show-page-container">
+  <section>
+    <app-detail-section
+      [title]="show.name"
+      [originalTitle]="show.original_name"
+      [genres]="show.genres"
+      [releaseDate]="show.first_air_date"
+      [runtime]="show.episode_run_time[0]"
+      [overview]="show.overview"
+      [posterPath]="show.poster_path"
+      [voteAverage]="show.vote_average"
+    />
+  </section>
+
+  <section *ngIf="!!credits?.length">
+    <app-cast-scroller [credits]="credits" />
+  </section>
+
+  <section>
+    <app-images-section [images]="images" />
+  </section>
+</div>

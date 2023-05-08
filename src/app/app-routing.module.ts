@@ -6,6 +6,7 @@ import { MoviePageComponent } from './components/movie-page/movie-page.component
 import { DiscoverTvShowsComponent } from './components/discover-tv-shows/discover-tv-shows.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { PersonPageComponent } from './components/person-page/person-page.component';
+import { TvShowPageComponent } from './components/tv-show-page/tv-show-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'tv/:id',
-    component: MoviePageComponent,
+    component: TvShowPageComponent,
   },
   {
     path: 'person/:id',

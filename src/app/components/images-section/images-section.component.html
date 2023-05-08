@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+      <mat-tab label="Backdrops">
+        <div class="image-scroller">
+          <img
+            fallback="/assets/backdrop-fallback.png"
+            *ngFor="let image of images?.backdrops"
+            class="movie-image"
+            src="https://image.tmdb.org/t/p/w780/{{ image.file_path }}"
+          />
+          <div *ngIf="!images?.backdrops?.length" class="no-item">
+            There are no backdrops.
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Posters">
+        <div class="image-scroller">
+          <img
+            fallback="/assets/poster-fallback.png"
+            *ngFor="let image of images?.posters"
+            class="movie-image"
+            src="https://image.tmdb.org/t/p/w300/{{ image.file_path }}"
+          />
+          <div *ngIf="!images?.posters?.length" class="no-item">
+            There are no posters.
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

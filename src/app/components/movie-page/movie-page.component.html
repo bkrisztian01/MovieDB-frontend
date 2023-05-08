@@ -1,43 +1,15 @@
 <div *ngIf="!!movie" class="main-container movie-page-container">
   <section>
-    <mat-card class="main">
-      <mat-card-content class="main-content">
-        <img
-          fallback="/assets/poster-fallback.png"
-          class="poster"
-          src="https://image.tmdb.org/t/p/w342/{{ movie.poster_path }}"
-        />
-        <div class="texts">
-          <header>
-            <h1 class="title">{{ movie.title }}</h1>
-            <h4>Original title: {{ movie.original_title }}</h4>
-            <h4>
-              {{ releaseYear() }} &#8226; {{ genres() }} &#8226; {{ runtime() }}
-            </h4>
-            <div class="vote-average">
-              <circle-progress
-                [percent]="voteAverage()"
-                [radius]="25"
-                unitsColor="white"
-                titleColor="white"
-                titleFontSize="14"
-                [outerStrokeWidth]="4"
-                [innerStrokeWidth]="0"
-                [outerStrokeColor]="'#78C000'"
-                [innerStrokeColor]="'#C7E596'"
-                [animation]="true"
-                [animationDuration]="300"
-              />
-              User score
-            </div>
-          </header>
-          <div class="overview">
-            <h2>Overview</h2>
-            <p>{{ movie.overview }}</p>
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
+    <app-detail-section
+      [title]="movie.title"
+      [originalTitle]="movie.original_title"
+      [genres]="movie.genres"
+      [releaseDate]="movie.release_date"
+      [runtime]="movie.runtime"
+      [overview]="movie.overview"
+      [posterPath]="movie.poster_path"
+      [voteAverage]="movie.vote_average"
+    />
   </section>
 
   <section *ngIf="!!credits?.length">
@@ -45,39 +17,6 @@
   </section>
 
   <section>
-    <mat-card>
-      <mat-card-content>
-        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
-          <mat-tab label="Backdrops">
-            <div class="image-scroller">
-              <img
-                fallback="/assets/backdrop-fallback.png"
-                *ngFor="let image of images?.backdrops"
-                class="movie-image"
-                src="https://image.tmdb.org/t/p/w780/{{ image.file_path }}"
-                height="300px"
-              />
-              <div *ngIf="!images?.backdrops?.length" class="no-item">
-                There are no backdrops.
-              </div>
-            </div>
-          </mat-tab>
-          <mat-tab label="Posters">
-            <div class="image-scroller">
-              <img
-                fallback="/assets/poster-fallback.png"
-                *ngFor="let image of images?.posters"
-                class="movie-image"
-                src="https://image.tmdb.org/t/p/w300/{{ image.file_path }}"
-                height="300px"
-              />
-              <div *ngIf="!images?.posters?.length" class="no-item">
-                There are no posters.
-              </div>
-            </div>
-          </mat-tab>
-        </mat-tab-group>
-      </mat-card-content>
-    </mat-card>
+    <app-images-section [images]="images" />
   </section>
 </div>

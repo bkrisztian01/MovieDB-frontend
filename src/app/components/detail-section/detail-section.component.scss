@@ -1,0 +1,38 @@
+@import "../../../styles.scss";
+
+.main-content {
+  display: flex;
+  align-items: center;
+}
+
+.main-content .poster {
+  width: 240px;
+}
+
+.main-content .texts {
+  margin-left: 15px;
+}
+
+.main-content .texts * {
+  margin-bottom: 10px;
+}
+
+.main-content .texts header * {
+  margin: 0;
+}
+
+.main-content .title {
+  font-weight: 500;
+  font-size: xx-large;
+}
+
+.main {
+  background-color: map-get($moviedb-primary, default);
+  color: map-get($moviedb-primary, default-contrast);
+}
+
+.main-content .vote-average {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

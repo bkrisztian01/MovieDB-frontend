@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Credit } from 'src/app/models/Credit';
+import { Episodes } from 'src/app/models/Episodes';
 import { Images } from 'src/app/models/Images';
 import { Movie } from 'src/app/models/Movie';
 import { Show } from 'src/app/models/Show';
@@ -15,6 +16,7 @@ export class TvShowPageComponent implements OnInit {
   show: Show;
   credits: Credit[];
   images: Images;
+  seasonEpisodes: Map<number, Episodes> = new Map<number, Episodes>();
 
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +34,7 @@ export class TvShowPageComponent implements OnInit {
 
       this.movieDbService.getShowById(tvShowId).subscribe((show) => {
         this.show = show;
+        console.log(show);
       });
 
       this.movieDbService.getShowCredits(tvShowId).subscribe((credits) => {
@@ -42,8 +45,19 @@ export class TvShowPageComponent implements OnInit {
 
       this.movieDbService.getShowImages(tvShowId).subscribe((images) => {
         this.images = images;
-        console.log('Page', this.images);
       });
     });
+  }
+
+  fetchSeasonEpisodes(seasonNumber: number) {
+    if (this.seasonEpisodes.has(seasonNumber)) {
+      return;
+    }
+
+    this.movieDbService
+      .getEpisodesOfSeason(this.show.id, seasonNumber)
+      .subscribe((episodes) => {
+        this.seasonEpisodes.set(seasonNumber, episodes);
+      });
   }
 }

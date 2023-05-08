@@ -7,6 +7,7 @@ import { DiscoverResult, SearchResult } from '../models/SearchResult';
 import { Credits } from '../models/Credits';
 import { Images } from '../models/Images';
 import { Person } from '../models/Person';
+import { Episodes } from '../models/Episodes';
 
 /**
  * Service used for accessing the TheMovieDB API.
@@ -196,7 +197,7 @@ export class MovieDbService {
     const options = {
       ...this.httpHeaders,
       params: {
-        language: 'en',
+        language: 'en-US',
       },
     };
 
@@ -208,10 +209,22 @@ export class MovieDbService {
     const options = {
       ...this.httpHeaders,
       params: {
-        language: 'en',
+        language: 'en-US',
       },
     };
 
     return this.http.get<Credits>(url, options);
+  }
+
+  getEpisodesOfSeason(seriesId: number, seasonNumber: number) {
+    const url = `${this.apiUrl}/tv/${seriesId}/season/${seasonNumber}`;
+    const options = {
+      ...this.httpHeaders,
+      params: {
+        language: 'en-US',
+      },
+    };
+
+    return this.http.get<Episodes>(url, options);
   }
 }

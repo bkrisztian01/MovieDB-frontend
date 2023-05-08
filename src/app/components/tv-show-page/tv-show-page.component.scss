@@ -1,3 +1,20 @@
 .tv-show-page-container section {
   margin: 20px 0;
 }
+
+.season-container .episode-container .episode {
+  display: flex;
+  align-items: center;
+}
+
+.season-container .episode-container .episode img {
+  width: 300px;
+}
+
+.season-container .episode-container .episode .details {
+  margin-left: 10px;
+}
+
+.season-container .episode-container .episode .title {
+  font-weight: 550;
+}

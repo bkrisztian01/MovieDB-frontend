@@ -1,4 +1,5 @@
 import { Genre } from './Genre';
+import { Season } from './Season';
 
 export type Show = {
   id: number;
@@ -10,4 +11,5 @@ export type Show = {
   genres: Genre[];
   episode_run_time: number[];
   first_air_date: string;
+  seasons: Season[];
 };

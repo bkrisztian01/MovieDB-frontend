@@ -1,0 +1,61 @@
+.person-container {
+  display: flex;
+}
+
+.person-container .profile-picture {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.person-container .personal-info {
+  margin-top: 10px;
+}
+
+.person-container .personal-info .detail {
+  font-weight: 500;
+}
+
+.person-container .personal-info .alias {
+  margin-bottom: 0;
+}
+
+.person-container .career-info-container {
+  margin-left: 15px;
+  width: 100%;
+}
+
+.person-container .career-info-container .name {
+  font-weight: 550;
+  font-size: x-large;
+}
+
+.person-container .career-info-container .biography {
+  white-space: pre-line;
+  text-align: justify;
+}
+
+.person-container .career-info-container .credit-title {
+  font-weight: 550;
+}
+
+.person-container .career-info-container .credit-title:hover {
+  font-weight: 550;
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
+.person-container .roles-container {
+  margin-top: 15px;
+}
+
+.person-container .career-info-container .role {
+  margin: 12px 0;
+}
+
+.person-container .career-info-container .role p {
+  margin: 0;
+}
+
+.person-container .career-info-container .role p.character {
+  margin-left: 10px;
+}

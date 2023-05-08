@@ -33,6 +33,7 @@ import { FallbackImgDirective } from './directives/fallback-img.directive';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { CastItemComponent } from './components/cast-item/cast-item.component';
 import { CastScrollerComponent } from './components/cast-scroller/cast-scroller.component';
+import { PersonPageComponent } from './components/person-page/person-page.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CastScrollerComponent } from './components/cast-scroller/cast-scroller.
     SearchFormComponent,
     CastItemComponent,
     CastScrollerComponent,
+    PersonPageComponent,
   ],
   imports: [
     BrowserModule,

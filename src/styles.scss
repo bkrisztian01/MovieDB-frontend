@@ -46,15 +46,11 @@ body {
 }
 :root {
   --maxPrimaryPageWidth: 1300px;
-  // --color-primary: #{mat-color($moviedb-primary)};
-  // --color-accent: #{mat-color($moviedb-accent)};
-  // --color-warn: #{mat-color($moviedb-warn)};
-  // --color-success: #{mat-color($moviedb-success)};
 }
 
 .main-container {
   width: 100%;
   height: 100%;
-  margin: 20px auto 0 auto;
+  margin: 20px auto;
   max-width: var(--maxPrimaryPageWidth);
 }

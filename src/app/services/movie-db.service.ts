@@ -6,6 +6,7 @@ import { Show } from '../models/Show';
 import { DiscoverResult, SearchResult } from '../models/SearchResult';
 import { Credits } from '../models/Credits';
 import { Images } from '../models/Images';
+import { Person } from '../models/Person';
 
 /**
  * HTTP headers for API authentication.
@@ -157,5 +158,29 @@ export class MovieDbService {
     };
 
     return this.http.get<Images>(url, options);
+  }
+
+  getPersonById(id: number) {
+    const url = `${this.apiUrl}/person/${id}`;
+    const options = {
+      ...httpHeaders,
+      params: {
+        language: 'en',
+      },
+    };
+
+    return this.http.get<Person>(url, options);
+  }
+
+  getCombinedCreditsOfPerson(personId: number) {
+    const url = `${this.apiUrl}/person/${personId}/combined_credits`;
+    const options = {
+      ...httpHeaders,
+      params: {
+        language: 'en',
+      },
+    };
+
+    return this.http.get<Credits>(url, options);
   }
 }

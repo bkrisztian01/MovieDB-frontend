@@ -25,7 +25,14 @@ export default class Utils {
    * @returns The year
    */
   static dateStringToYear(dateString: string): number {
-    const date = new Date(dateString);
+    const date = new Date(dateString || 0);
     return date.getFullYear();
   }
+
+  static genderMap = new Map<number, string>([
+    [0, 'Not specified'],
+    [1, 'Female'],
+    [2, 'Male'],
+    [3, 'Non-binary'],
+  ]);
 }

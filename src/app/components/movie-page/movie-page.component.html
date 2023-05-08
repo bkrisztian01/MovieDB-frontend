@@ -49,20 +49,20 @@
       <mat-card-content>
         <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
           <mat-tab label="Backdrops">
-            <div class="image-scroller">
+            <div *ngIf="!!images?.backdrops" class="image-scroller">
               <img
                 *ngFor="let image of images.backdrops"
                 class="movie-image"
                 src="https://image.tmdb.org/t/p/w780/{{ image.file_path }}"
                 height="300px"
               />
-              <div *ngIf="!images.backdrops" class="no-item">
+              <div *ngIf="!images?.backdrops" class="no-item">
                 There's no images.
               </div>
             </div>
           </mat-tab>
           <mat-tab label="Posters">
-            <div class="image-scroller">
+            <div *ngIf="!!images?.posters" class="image-scroller">
               <img
                 *ngFor="let image of images.posters"
                 class="movie-image"
@@ -70,7 +70,7 @@
                 height="300px"
               />
             </div>
-            <div *ngIf="!images.posters" class="no-item">
+            <div *ngIf="!images?.posters" class="no-item">
               There's no images.
             </div>
           </mat-tab>

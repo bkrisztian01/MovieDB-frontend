@@ -1,0 +1,35 @@
+<div class="main-container person-container">
+  <section class="personal-info-container">
+    <img
+      class="profile-picture"
+      src="https://image.tmdb.org/t/p/h632/{{ person.profile_path }}"
+    />
+    <div class="personal-info">
+      <h2>Personal Info</h2>
+
+      <span class="detail">Known For</span>
+      <p>{{ person.known_for_department }}</p>
+
+      <span class="detail">Gender</span>
+      <p>{{ gender() }}</p>
+
+      <span class="detail">Birthday</span>
+      <p>{{ person.birthday }}</p>
+
+      <span class="detail">Place of Birth</span>
+      <p>{{ person.place_of_birth }}</p>
+
+      <span class="detail">Also Known As</span>
+      <p *ngFor="let alias of person.also_known_as" class="alias">
+        {{ alias }}
+      </p>
+    </div>
+  </section>
+  <section class="career-info-container">
+    <h1 class="name">
+      {{ person.name }}
+    </h1>
+    <h2>Biography</h2>
+    <p class="biography">{{ person.biography }}</p>
+  </section>
+</div>

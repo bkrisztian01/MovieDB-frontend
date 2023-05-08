@@ -32,7 +32,6 @@ export class MoviePageComponent implements OnInit {
 
       this.movieDbService.getMovieById(movieId).subscribe((movie) => {
         this.movie = movie;
-        console.log(movie);
       });
 
       this.movieDbService.getMovieCredits(movieId).subscribe((credits) => {

@@ -28,4 +28,11 @@ export default class Utils {
     const date = new Date(dateString);
     return date.getFullYear();
   }
+
+  static genderMap = new Map<number, string>([
+    [0, 'Not specified'],
+    [1, 'Female'],
+    [2, 'Male'],
+    [3, 'Non-binary'],
+  ]);
 }

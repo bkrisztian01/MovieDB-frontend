@@ -1,0 +1,34 @@
+.person-container {
+  display: flex;
+}
+
+.person-container .profile-picture {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.person-container .personal-info {
+  margin-top: 20px;
+}
+
+.person-container .personal-info .detail {
+  font-weight: 500;
+}
+
+.person-container .personal-info .alias {
+  margin-bottom: 0;
+}
+
+.person-container .career-info-container {
+  padding: 15px;
+}
+
+.person-container .career-info-container .name {
+  font-weight: 550;
+  font-size: xx-large;
+}
+
+.person-container .career-info-container .biography {
+  white-space: pre-line;
+  text-align: justify;
+}

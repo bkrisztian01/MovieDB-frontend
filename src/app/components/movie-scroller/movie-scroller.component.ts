@@ -9,6 +9,5 @@ import { MovieItem } from 'src/app/models/MovieItem';
 export class MovieScrollerComponent {
   @Input() title: string;
   @Input() movies: MovieItem[];
-  @Input() morePath: string;
   @Input() itemPathPrefix: string;
 }

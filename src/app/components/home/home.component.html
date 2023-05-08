@@ -17,7 +17,6 @@
   <section>
     <app-movie-scroller
       title="Discover movies"
-      morePath="discover/movie"
       [movies]="discoverMovies"
       *ngIf="!!discoverMovies"
       itemPathPrefix="/movie"
@@ -27,7 +26,6 @@
   <section>
     <app-movie-scroller
       title="Discover TV shows"
-      morePath="discover/movie"
       [movies]="discoverShows"
       *ngIf="!!discoverShows"
       itemPathPrefix="/tv"

@@ -1,40 +1,81 @@
 <div *ngIf="!!movie" class="main-container movie-page-container">
-  <mat-card>
-    <mat-card-content class="main-content">
-      <img
-        class="poster"
-        fallback=""
-        src="https://image.tmdb.org/t/p/w342/{{ movie.poster_path }}"
-      />
-      <div class="texts">
-        <header>
-          <h1 class="title">{{ movie.title }}</h1>
-          <h4>Original title: {{ movie.original_title }}</h4>
-          <h4>
-            {{ releaseYear() }} &#8226; {{ genres() }} &#8226; {{ runtime() }}
-          </h4>
-          <div class="vote-average">
-            <circle-progress
-              [percent]="voteAverage()"
-              [radius]="25"
-              unitsColor="white"
-              titleColor="white"
-              titleFontSize="14"
-              [outerStrokeWidth]="4"
-              [innerStrokeWidth]="0"
-              [outerStrokeColor]="'#78C000'"
-              [innerStrokeColor]="'#C7E596'"
-              [animation]="true"
-              [animationDuration]="300"
-            ></circle-progress>
-            User score
+  <section>
+    <mat-card class="main">
+      <mat-card-content class="main-content">
+        <img
+          class="poster"
+          fallback=""
+          src="https://image.tmdb.org/t/p/w342/{{ movie.poster_path }}"
+        />
+        <div class="texts">
+          <header>
+            <h1 class="title">{{ movie.title }}</h1>
+            <h4>Original title: {{ movie.original_title }}</h4>
+            <h4>
+              {{ releaseYear() }} &#8226; {{ genres() }} &#8226; {{ runtime() }}
+            </h4>
+            <div class="vote-average">
+              <circle-progress
+                [percent]="voteAverage()"
+                [radius]="25"
+                unitsColor="white"
+                titleColor="white"
+                titleFontSize="14"
+                [outerStrokeWidth]="4"
+                [innerStrokeWidth]="0"
+                [outerStrokeColor]="'#78C000'"
+                [innerStrokeColor]="'#C7E596'"
+                [animation]="true"
+                [animationDuration]="300"
+              ></circle-progress>
+              User score
+            </div>
+          </header>
+          <div class="overview">
+            <h2>Overview</h2>
+            <p>{{ movie.overview }}</p>
           </div>
-        </header>
-        <div class="overview">
-          <h2>Overview</h2>
-          <p>{{ movie.overview }}</p>
         </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <section>
+    <app-cast-scroller [credits]="credits" />
+  </section>
+
+  <section>
+    <mat-card>
+      <mat-card-content>
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+          <mat-tab label="Backdrops">
+            <div class="image-scroller">
+              <img
+                *ngFor="let image of images.backdrops"
+                class="movie-image"
+                src="https://image.tmdb.org/t/p/w780/{{ image.file_path }}"
+                height="300px"
+              />
+              <div *ngIf="!images.backdrops" class="no-item">
+                There's no images.
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Posters">
+            <div class="image-scroller">
+              <img
+                *ngFor="let image of images.posters"
+                class="movie-image"
+                src="https://image.tmdb.org/t/p/w300/{{ image.file_path }}"
+                height="300px"
+              />
+            </div>
+            <div *ngIf="!images.posters" class="no-item">
+              There's no images.
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </section>
 </div>

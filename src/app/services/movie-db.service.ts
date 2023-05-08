@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment.development';
 import { Movie } from '../models/Movie';
 import { Show } from '../models/Show';
 import { DiscoverResult, SearchResult } from '../models/SearchResult';
+import { Credits } from '../models/Credits';
+import { Images } from '../models/Images';
 
 /**
  * HTTP headers for API authentication.
@@ -124,5 +126,36 @@ export class MovieDbService {
     };
 
     return this.http.get<SearchResult<Show>>(url, options);
+  }
+
+  /**
+   * Get credits of a movie.
+   * @param id - The ID of the movies
+   * @returns The credits of the movie.
+   */
+  getMovieCredits(id: number) {
+    const url = `${this.apiUrl}/movie/${id}/credits`;
+    const options = {
+      ...httpHeaders,
+    };
+
+    return this.http.get<Credits>(url, options);
+  }
+
+  /**
+   * Get the images that belong to a movie.
+   * @param id - The ID of the movies
+   * @returns The credits of the movie.
+   */
+  getMovieImages(id: number) {
+    const url = `${this.apiUrl}/movie/${id}/images`;
+    const options = {
+      ...httpHeaders,
+      params: {
+        language: 'en',
+      },
+    };
+
+    return this.http.get<Images>(url, options);
   }
 }

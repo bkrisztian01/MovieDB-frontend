@@ -3,10 +3,7 @@
     <app-search-form [defaultValue]="query" />
   </div>
 
-  <mat-tab-group
-    animationDuration="0ms"
-    (selectedTabChange)="onSelectedTabChange()"
-  >
+  <mat-tab-group dynamicHeight (selectedTabChange)="onSelectedTabChange()">
     <mat-tab
       *ngIf="!!movieSearchResult"
       label="Movies ({{ movieSearchResult.total_results }})"

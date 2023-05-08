@@ -8,7 +8,10 @@
         <app-movie-item
           class="item"
           *ngFor="let movie of discoverMoviesResult.results"
-          [movie]="movie"
+          [id]="movie.id"
+          [title]="movie.title"
+          [posterPath]="movie.posterPath"
+          [voteAverage]="movie.voteAverage"
           itemPathPrefix="/movie"
         />
       </div>

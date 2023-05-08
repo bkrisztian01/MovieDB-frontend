@@ -2,7 +2,9 @@
   <mat-card-header>
     <div class="header">
       <mat-card-title class="section title">{{ title }}</mat-card-title>
-      <a class="more" routerLink="{{ morePath }}">show more</a>
+      <a class="more" routerLink="{{ 'discover' + itemPathPrefix }}">
+        show more
+      </a>
     </div>
   </mat-card-header>
   <mat-card-content>
@@ -10,7 +12,10 @@
       <app-movie-item
         *ngFor="let movie of movies"
         itemPathPrefix="{{ itemPathPrefix }}"
-        [movie]="movie"
+        [id]="movie.id"
+        [title]="movie.title"
+        [posterPath]="movie.posterPath"
+        [voteAverage]="movie.voteAverage"
       ></app-movie-item>
     </div>
   </mat-card-content>

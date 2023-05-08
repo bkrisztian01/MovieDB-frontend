@@ -1,0 +1,18 @@
+.discover-tv-shows-container {
+  max-width: 800px;
+}
+
+.discover-tv-shows-container .result-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.discover-tv-shows-container .item {
+  width: fit-content;
+}
+
+.discover-tv-shows-container mat-card-title {
+  font-size: x-large;
+  margin-bottom: 20px;
+}

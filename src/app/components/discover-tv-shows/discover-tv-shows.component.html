@@ -1,1 +1,32 @@
-<p>discover-tv-shows works!</p>
+<div class="main-container discover-tv-shows-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> Discover TV shows </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="result-grid">
+        <app-movie-item
+          class="item"
+          *ngFor="let show of discoverShowsResult.results"
+          [id]="show.id"
+          [title]="show.name"
+          [posterPath]="show.poster_path"
+          [voteAverage]="show.vote_average"
+          itemPathPrefix="/tv"
+        />
+      </div>
+
+      <mat-paginator
+        class="mat-app-background"
+        hidePageSize="true"
+        aria-label="Select page"
+        [length]="discoverShowsResult.total_results"
+        [pageSize]="20"
+        [pageIndex]="page - 1"
+        (page)="handlePageEvent($event)"
+      />
+    </mat-card-content>
+  </mat-card>
+
+  <div class="credits-container"></div>
+</div>

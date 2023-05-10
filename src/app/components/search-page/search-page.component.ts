@@ -46,6 +46,10 @@ export class SearchPageComponent implements OnInit {
     });
   }
 
+  /**
+   * Handles the changes of page index.
+   * @param e The page event
+   */
   handlePageEvent(e: PageEvent) {
     this.page = e.pageIndex + 1;
     this.router.navigate([], {
@@ -54,6 +58,9 @@ export class SearchPageComponent implements OnInit {
     });
   }
 
+  /**
+   * Resets the page index query parameter on tab change.
+   */
   onSelectedTabChange() {
     this.page = 1;
     this.router.navigate([], {

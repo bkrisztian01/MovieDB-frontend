@@ -49,6 +49,10 @@ export class TvShowPageComponent implements OnInit {
     });
   }
 
+  /**
+   * Fetches the epiodes of a season.
+   * @param seasonNumber The season number
+   */
   fetchSeasonEpisodes(seasonNumber: number) {
     if (this.seasonEpisodes.has(seasonNumber)) {
       return;

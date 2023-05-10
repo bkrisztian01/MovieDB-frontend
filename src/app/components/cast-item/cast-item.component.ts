@@ -13,7 +13,7 @@ export class CastItemComponent {
   constructor(private router: Router) {}
 
   /**
-   * Navigates the client to the persons detail page.
+   * Navigates the client to the persons page.
    */
   onClick() {
     this.router.navigate(['/person', this.credit.id]);

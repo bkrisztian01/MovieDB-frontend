@@ -21,6 +21,9 @@ export class SearchFormComponent implements OnInit {
     this.searchForm.setValue({ query: this.defaultValue });
   }
 
+  /**
+   * Emits the search submit event and navigates the client to the search page.
+   */
   onSubmit() {
     if (this.searchForm.valid) {
       this.router.navigate(['/search'], {

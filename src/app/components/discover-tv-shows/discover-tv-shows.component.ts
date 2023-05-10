@@ -32,6 +32,10 @@ export class DiscoverTvShowsComponent implements OnInit {
     });
   }
 
+  /**
+   * Handles the changes of page index.
+   * @param e The page event
+   */
   handlePageEvent(e: PageEvent) {
     this.page = e.pageIndex + 1;
     this.router.navigate([], {

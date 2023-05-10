@@ -8,6 +8,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class HeaderComponent {
   @Output() menuClick = new EventEmitter();
 
+  /**
+   * Emits the menu button click event.
+   */
   onClick() {
     this.menuClick.emit();
   }

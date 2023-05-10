@@ -16,6 +16,9 @@ export class MovieItemComponent {
 
   constructor(private router: Router) {}
 
+  /**
+   * Navigates the client to the items page.
+   */
   onClick() {
     this.router.navigate([this.itemPathPrefix, this.id]);
   }

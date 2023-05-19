@@ -12,10 +12,17 @@ export class CastItemComponent {
 
   constructor(private router: Router) {}
 
+  /**
+   * Navigates the client to the persons page.
+   */
   onClick() {
     this.router.navigate(['/person', this.credit.id]);
   }
 
+  /**
+   * Returns the character played by the cast.
+   * @returns The character.
+   */
   character() {
     return this.credit.character || this.credit.roles[0].character || '';
   }

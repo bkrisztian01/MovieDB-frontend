@@ -16,6 +16,9 @@ import { Episodes } from '../models/Episodes';
   providedIn: 'root',
 })
 export class MovieDbService {
+  /**
+   * Base URL of the API.
+   */
   private apiUrl = 'https://api.themoviedb.org/3';
 
   /**
@@ -192,6 +195,11 @@ export class MovieDbService {
     return this.http.get<Images>(url, options);
   }
 
+  /**
+   * Get details of a person.
+   * @param id The ID of the person
+   * @returns The details of the person.
+   */
   getPersonById(id: number) {
     const url = `${this.apiUrl}/person/${id}`;
     const options = {
@@ -204,6 +212,11 @@ export class MovieDbService {
     return this.http.get<Person>(url, options);
   }
 
+  /**
+   * Get the combined credits of a person.
+   * @param personId The ID of the person
+   * @returns The combined credits of the person.
+   */
   getCombinedCreditsOfPerson(personId: number) {
     const url = `${this.apiUrl}/person/${personId}/combined_credits`;
     const options = {
@@ -216,6 +229,12 @@ export class MovieDbService {
     return this.http.get<Credits>(url, options);
   }
 
+  /**
+   * Get information of the episodes from a season of a given TV show.
+   * @param seriesId The ID of the TV show.
+   * @param seasonNumber The season of the TV show
+   * @returns The information about the episodes.
+   */
   getEpisodesOfSeason(seriesId: number, seasonNumber: number) {
     const url = `${this.apiUrl}/tv/${seriesId}/season/${seasonNumber}`;
     const options = {

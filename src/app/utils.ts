@@ -29,6 +29,9 @@ export default class Utils {
     return date.getFullYear();
   }
 
+  /**
+   * Number and gender pairings used in TheMovieDB API.
+   */
   static genderMap = new Map<number, string>([
     [0, 'Not specified'],
     [1, 'Female'],

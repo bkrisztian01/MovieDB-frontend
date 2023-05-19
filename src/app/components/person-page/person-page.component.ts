@@ -50,10 +50,19 @@ export class PersonPageComponent implements OnInit {
     });
   }
 
+  /**
+   * Returns the persons gender.
+   * @returns The gender.
+   */
   gender() {
     return Utils.genderMap.get(this.person.gender);
   }
 
+  /**
+   * Returns the URL path to the credits media page.
+   * @param credit The credit
+   * @returns The URL path to the media page.
+   */
   mediaLink(credit: Credit) {
     return `/${credit.media_type}/${credit.id}`;
   }

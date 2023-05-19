@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/models/Movie';
 import { Credit } from 'src/app/models/Credit';
 import { MovieDbService } from 'src/app/services/movie-db.service';
-import Utils from 'src/app/utils';
 import { Images } from 'src/app/models/Images';
 
 @Component({

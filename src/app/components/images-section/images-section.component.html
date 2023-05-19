@@ -7,6 +7,7 @@
             fallback="/assets/backdrop-fallback.png"
             *ngFor="let image of images?.backdrops"
             class="movie-image"
+            alt="Backdrop"
             src="https://image.tmdb.org/t/p/w780/{{ image.file_path }}"
           />
           <div *ngIf="!images?.backdrops?.length" class="no-item">
@@ -20,6 +21,7 @@
             fallback="/assets/poster-fallback.png"
             *ngFor="let image of images?.posters"
             class="movie-image"
+            alt="Poster"
             src="https://image.tmdb.org/t/p/w300/{{ image.file_path }}"
           />
           <div *ngIf="!images?.posters?.length" class="no-item">

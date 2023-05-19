@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Movie } from 'src/app/models/Movie';
 
 @Component({
   selector: 'app-search-movie-result',
@@ -16,6 +15,9 @@ export class SearchMovieResultComponent {
 
   constructor(private router: Router) {}
 
+  /**
+   * Navigates the client to the page of the result.
+   */
   onClick() {
     this.router.navigate([`/${this.type}`, this.id]);
   }

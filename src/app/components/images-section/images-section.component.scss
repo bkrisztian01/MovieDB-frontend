@@ -6,8 +6,11 @@
   height: fit-content;
   width: 100%;
   margin-top: 5px;
-
   justify-content: flex-start;
+}
+
+.image-scroller.empty {
+  justify-content: center;
 }
 
 .image-scroller img {

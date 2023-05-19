@@ -2,7 +2,7 @@
   <mat-card-content>
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
       <mat-tab label="Backdrops">
-        <div class="image-scroller">
+        <div class="image-scroller" [class.empty]="!images.posters.length">
           <img
             fallback="/assets/backdrop-fallback.png"
             *ngFor="let image of images?.backdrops"
@@ -16,7 +16,7 @@
         </div>
       </mat-tab>
       <mat-tab label="Posters">
-        <div class="image-scroller">
+        <div class="image-scroller" [class.empty]="!images.posters.length">
           <img
             fallback="/assets/poster-fallback.png"
             *ngFor="let image of images?.posters"

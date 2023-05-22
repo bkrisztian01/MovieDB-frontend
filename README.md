@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 
+## Prerequisite
+
+You need a valid API key from [TheMovieDB](https://developer.themoviedb.org/docs). Run `ng generate environments` to generate environments and place your API key inside the `src/environments/environment.development.ts` file as shown below:
+```
+export const environment = {
+  THEMOVIEDB_API_KEY: '*your API key*',
+};
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
